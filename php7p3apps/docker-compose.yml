@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  # PHP-FPM - Service
+  php7p3apps:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: php7p3apps
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./docker-files/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+
+    networks:
+      - app-network
+
+  # NGINX - Service
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+
+    volumes:
+      - ./:/var/www/html
+      - ./docker-files/nginx/conf.d/:/etc/nginx/conf.d/
+
+    networks:
+      - app-network
+
+# Networks
+networks:
+  app-network:
+    driver: bridge
+    external:
+      name: commonservices_common
