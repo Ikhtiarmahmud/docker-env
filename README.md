@@ -15,7 +15,13 @@
 docker-compose up --build
 ```
 
-*To run docker image*
+# How to run a project
+
+
 ```
-docker-compose up
+syntax: docker-compose run -rm -pDockerport:ExternalPort service-name bash
+```
+
+```
+example: docker-compose run --rm -p8700:8000 php8apps bash 
 ```
