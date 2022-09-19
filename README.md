@@ -15,8 +15,12 @@
 docker-compose up --build
 ```
 
-# How to run a project
+*If already builed then just run
+```
+docker-compose up -d (run in background)
+```
 
+# How to run a project
 
 ```
 syntax: docker-compose run -rm -pDockerport:ExternalPort service-name bash
@@ -24,4 +28,18 @@ syntax: docker-compose run -rm -pDockerport:ExternalPort service-name bash
 
 ```
 example: docker-compose run --rm -p8700:8000 php8apps bash 
+```
+*then go to the directory what you want to run
+```
+cd example
+```
+
+*then run the project
+```
+php artisan serve --host=0.0.0.0 (for laravel project)
+```
+
+*then hit to browser with port
+```
+http://0.0.0.0:8700
 ```
