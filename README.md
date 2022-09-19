@@ -15,7 +15,7 @@
 docker-compose up --build
 ```
 
-*If already builed then just run
+*If already builed then just up the service
 ```
 docker-compose up -d (run in background)
 ```
