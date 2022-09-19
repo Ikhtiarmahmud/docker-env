@@ -39,7 +39,7 @@ cd example
 php artisan serve --host=0.0.0.0 (for laravel project)
 ```
 
-*then hit to browser with port
+*then hit on browser with docker port (we run the project on 8700 port of docker)
 ```
 http://0.0.0.0:8700
 ```
